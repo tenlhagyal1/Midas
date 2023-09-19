@@ -52,13 +52,32 @@ With this they can Buy & Sell stocks.
 
 Enjoy Trading!
 
+## User Stories 
 
-## BUGS 
+As a new user, I want to be able to register for an account so that I can access the paper trading platform.
+As a registered user, I want to be able to log in to the platform using my credentials so that I can access my dashboard and trading features.
+As a user, I want to be able to search for stocks by ticker or company name so that I can view their details and make informed trading decisions.
+As a user, I want to be able to view a stock's current price, price change, and historical chart so that I can analyze its performance.
+As a user, I want to be able to execute paper trades (buy/sell) so that I can simulate real-world trading without risking real money.
+As a user, I want to view a summary of my portfolio, including total value, cash available, and total profit/loss, so that I can track my paper trading performance.
+As a user, I want to view a list of stocks I hold, including the number of shares, average purchase price, and current value, so that I can manage my holdings.
+As a user, I want to be able to log out of the platform to ensure the security of my account.
 
 
+## MVP Goals 
 
-## Next Steps
-
-
-## Credits
+User Registration & Authentication:
+Implement a registration system with form validation.
+Implement a login system with authentication and session management.
+Dashboard:
+Display portfolio summary (total value, cash available, profit/loss).
+List user's stock holdings with relevant details.
+Stock Search & Display:
+Implement a search bar to find stocks by ticker or company name.
+Display stock details including current price, price change, and a basic historical chart.
+Paper Trading:
+Allow users to execute buy/sell trades with form validation.
+Update user's portfolio and holdings in real-time after a trade.
+Stretch Goals:
+Advanced Stock Analytics:
 
