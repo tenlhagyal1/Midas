@@ -4,14 +4,8 @@
 
 ## Project Description: 
 
-MIDAS is a replication of popular Stock Exchanges.
-
-Idea #1 
-It allows users to create an account, login, and buy and sell stocks. (paper trading)
-
-Idea #2
-It allows users to create an account and login. The application also allows users to view their portfolio and see their current balance. The application also allows users to view their transaction history. 
-
+MIDAS is a replication of popular Stock Exchanges. 
+It allows the user to paper trade and view their favorite stocks.
 
 ## Technologies Used
 
@@ -25,20 +19,25 @@ It allows users to create an account and login. The application also allows user
 
 ## Getting Started
 
-
+[Deployed Front-End]()
 
 ## Screenshots
 
+![image](https://github.com/rehanhussa/Midas/blob/main/test.png)
 
 
 ## Trello
 
-[Trello Link](https://trello.com/b/ge0bcOvv/project-2-spotify-application)
+[Trello Link](https://trello.com/b/W70a7V17/midas-simulated-stock-exchange)
 
-## Code Examples
+## Wireframe 
 
-
-
+1. Landing Page
+2. Register Page
+3. Login Page
+4. Dashboard After Login
+5. Paper Trade page
+6. View Stocks page
 
 ## Motivation
 
@@ -46,6 +45,12 @@ We wanted to test our skills and build a application that would challenge us. We
 
 ## How to Use
 
+Login to the webpage / create an account. 
+A list of stocks should be displayed to the user on the home page.
+A paper trade balance should be displayed to the user if they click the trading tab. 
+With this they can Buy & Sell stocks.
+
+Enjoy Trading!
 
 
 ## BUGS 
