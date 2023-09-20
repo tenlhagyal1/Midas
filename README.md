@@ -1,4 +1,3 @@
-# MIDAS 
 
 ![image](https://github.com/rehanhussa/Midas/blob/main/midas.png)
 
