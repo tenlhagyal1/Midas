@@ -1,12 +1,9 @@
-import React from "react";
-
-import Header from "./assets/components/Header/Header";
-
 function App() {
-  return <div className="App">
-    <Header />
-  
-  </div>;
+    return (
+        <div className="app">
+
+        </div>
+    )
 }
 
-export default App;
+export default App
