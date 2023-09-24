@@ -141,14 +141,14 @@ const Sidebar = () => {
             />
             <Item
               title="Portfolio"
-              to="/contacts"
+              to="/portfolio"
               icon={<ContactsOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Stock list"
-              to="/invoices"
+              to="/stocks"
               icon={<ReceiptOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}

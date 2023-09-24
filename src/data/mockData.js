@@ -75,7 +75,7 @@ export const mockDataTeam = [
   },
 ];
 
-export const mockDataContacts = [
+export const mockDataPortfolio = [
   {
     id: 1,
     name: "Jon Snow",
@@ -199,7 +199,7 @@ export const mockDataContacts = [
   },
 ];
 
-export const mockDataInvoices = [
+export const mockDataStocks = [
   {
     id: 1,
     name: "Jon Snow",
