@@ -31,7 +31,7 @@ It allows the user to paper trade and view their favorite stocks.
 
 ## USER FLOW
 
-![image](
+![image](https://github.com/rehanhussa/Midas/blob/development/user.jpg)
 
 ## Wireframe 
 
