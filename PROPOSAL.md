@@ -29,6 +29,10 @@ It allows the user to paper trade and view their favorite stocks.
 
 [Trello Link](https://trello.com/b/W70a7V17/midas-simulated-stock-exchange)
 
+## USER FLOW
+
+![image](https://github.com/rehanhussa/Midas/blob/development/user.jpg)
+
 ## Wireframe 
 
 1. Landing Page
