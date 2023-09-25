@@ -16,10 +16,16 @@ import {
 import Header from "../../components/Header";
 import { tokens } from "../../theme";
 
+// CALENDAR
+
 const Calendar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [currentEvents, setCurrentEvents] = useState([]);
+
+  // ADD EVENT
+
+  // If time is available turn into modal / dialog
 
   const handleDateClick = (selected) => {
     const title = prompt("Please enter a new title for your event");
@@ -36,6 +42,8 @@ const Calendar = () => {
       });
     }
   };
+
+  // DELETE EVENT
 
   const handleEventClick = (selected) => {
     if (
@@ -70,10 +78,11 @@ const Calendar = () => {
                   borderRadius: "2px",
                 }}
               >
+                {/* Possible problem? */}
                 <ListItemText
                   primary={event.title}
                   secondary={
-                    <Typography>
+                    <Typography> // 
                       {formatDate(event.start, {
                         year: "numeric",
                         month: "short",
@@ -102,6 +111,8 @@ const Calendar = () => {
               center: "title",
               right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
             }}
+
+            // INITIAL EVENTS
             initialView="dayGridMonth"
             editable={true}
             selectable={true}
