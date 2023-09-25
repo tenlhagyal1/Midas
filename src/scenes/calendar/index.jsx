@@ -1,6 +1,5 @@
 import { useState } from "react";
 import FullCalendar from "@fullcalendar/react";
-import { formatDate } from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
@@ -82,12 +81,12 @@ const Calendar = () => {
                 <ListItemText
                   primary={event.title}
                   secondary={
-                    <Typography> // 
-                      {formatDate(event.start, {
+                    <Typography>
+                      {new Intl.DateTimeFormat("en-US", {
                         year: "numeric",
                         month: "short",
                         day: "numeric",
-                      })}
+                      }).format(new Date(event.start))}
                     </Typography>
                   }
                 />
@@ -111,7 +110,6 @@ const Calendar = () => {
               center: "title",
               right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
             }}
-
             // INITIAL EVENTS
             initialView="dayGridMonth"
             editable={true}
