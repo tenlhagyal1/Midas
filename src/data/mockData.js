@@ -2,7 +2,7 @@ import { tokens } from "../theme";
 
 
 
-export const mockDataPortfolio = [
+export const mockDataTransactions = [
   {
     id: 1,
     name: "Jon Snow",
@@ -359,7 +359,7 @@ export const mockPieData = [
 
 export const mockLineData = [
   {
-    id: "japan",
+    id: "Microsoft",
     color: tokens("dark").greenAccent[500],
     data: [
       {
@@ -413,7 +413,7 @@ export const mockLineData = [
     ],
   },
   {
-    id: "france",
+    id: "Apple",
     color: tokens("dark").blueAccent[300],
     data: [
       {
@@ -467,7 +467,7 @@ export const mockLineData = [
     ],
   },
   {
-    id: "us",
+    id: "Tesla",
     color: tokens("dark").redAccent[200],
     data: [
       {

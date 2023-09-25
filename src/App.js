@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
-// import Transactions from "./scenes/transactions";
+import Transactions from "./scenes/transactions";
 // import Stocks from "./scenes/stocks";
 // import Portfolio from "./scenes/portfolio";
 import Bar from "./scenes/bar";
@@ -36,7 +36,7 @@ function App() {
                <Route path="/geography" element={<Geography />} />
                <Route path="/faq" element={<FAQ />} />
                 <Route path="/calendar" element={<Calendar />} /> 
-               {/* <Route path="/calendar" element={<Calendar />} /> */}
+                <Route path="/transactions" element={<Transactions />} />
               {/* <Route path="/transactions" element={<Transactions />} />
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/stocks" element={<Stocks />} />
