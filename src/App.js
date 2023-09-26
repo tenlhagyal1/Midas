@@ -11,6 +11,7 @@ import Bar from "./scenes/bar";
 import Line from "./scenes/line";
 import Pie from "./scenes/pie";
 import FAQ from "./scenes/faq";
+import Portfolio from "./scenes/portfolio";
 import Geography from "./scenes/geography";
 import Calendar from "./scenes/calendar/index";
 import { CssBaseline, ThemeProvider } from "@mui/material";
@@ -37,12 +38,10 @@ function App() {
                <Route path="/faq" element={<FAQ />} />
                 <Route path="/calendar" element={<Calendar />} /> 
                 <Route path="/transactions" element={<Transactions />} />
-              {/* <Route path="/transactions" element={<Transactions />} />
+              {/* <Route path="/transactions" element={<Transactions /> />*/}
               <Route path="/portfolio" element={<Portfolio />} />
-              <Route path="/stocks" element={<Stocks />} />
-              <Route path="/form" element={<Form />} />
-             
-  */}
+              {/*<Route path="/stocks" element={<Stocks />} />
+              <Route path="/form" element={<Form />} />*/}
               
             </Routes>
           </main>
