@@ -13,6 +13,7 @@ import Pie from "./scenes/pie";
 import FAQ from "./scenes/faq";
 import Geography from "./scenes/geography";
 import Calendar from "./scenes/calendar/index";
+import List from "./scenes/list"
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 
@@ -37,6 +38,7 @@ function App() {
                <Route path="/faq" element={<FAQ />} />
                 <Route path="/calendar" element={<Calendar />} /> 
                 <Route path="/transactions" element={<Transactions />} />
+                 <Route path="/list" element={<List />} />
               {/* <Route path="/transactions" element={<Transactions />} />
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/stocks" element={<Stocks />} />
