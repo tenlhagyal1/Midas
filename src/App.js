@@ -14,6 +14,7 @@ import FAQ from "./scenes/faq";
 import Portfolio from "./scenes/portfolio";
 import Geography from "./scenes/geography";
 import Calendar from "./scenes/calendar/index";
+import Stock from "./scenes/stockbyid/index.jsx";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 
@@ -40,6 +41,7 @@ function App() {
                 <Route path="/transactions" element={<Transactions />} />
               {/* <Route path="/transactions" element={<Transactions /> />*/}
               <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/stocks/:id" element={<Stock/>} />
               {/*<Route path="/stocks" element={<Stocks />} />
               <Route path="/form" element={<Form />} />*/}
               

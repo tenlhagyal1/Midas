@@ -1,6 +1,6 @@
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
-import { purchaseStock, getStock } from '../../api/stocks';
+import { purchaseStock, getStockData } from '../../api/stocks';
 import { useState, useEffect } from "react";
 
 const Portfolio = () => {
@@ -12,7 +12,7 @@ const Portfolio = () => {
     useEffect(() => {
         const fetchStock = async () => {
             try {
-                const stockData = await getStock();
+                const stockData = await getStockData();
                 setData(stockData);
             } catch (error) {
                 console.error("Error setting stock data in state:", error);

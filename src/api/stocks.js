@@ -1,9 +1,13 @@
+import api from './apiConfig'
+
 const ROOT = process.env.REACT_APP_STOCK_API_ROOT;
 const token = process.env.REACT_APP_API_KEY;
 
-export const getStock = async (symbol) => {
+// Get Stock Data
+
+export async function getStockData(id) {
     try {
-        const response = await fetch(`${ROOT}quote?symbol=${symbol}&token=${token}`);
+        const response = await fetch(`${ROOT}quote?symbol=${id}&token=${token}`);
         const data = await response.json();
         console.log(data);
         return data;
@@ -13,26 +17,57 @@ export const getStock = async (symbol) => {
     }
 }
 
-export const purchaseStock = async (stockId, stockData) => {
-    try {
-        const response = await fetch(`http://localhost:8080/api/stocks/${stockId}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(stockData)
-        });
+// Search Stocks
 
-        // Check if the response is successful
-        if (!response.ok) {
-            throw new Error(`Failed to purchase stock. Status: ${response.status}`);
-        }
+// searchStock
 
-        const responseData = await response.json();
-        return responseData;
+// Buy Stock
 
-    } catch (error) {
-        console.error("Error purchasing stock:", error);
-        return null;
+export async function purchaseStock(id, formData) {
+    const stockId = id;
+    const stockData = await getStockData(stockId);
+    if (!stockData) {
+        throw new Error("Failed to fetch stock data");
     }
+    
+    const data = {
+        stockId: stockId,
+        ...formData
+    };
+
+    const response = await api.post(`/stocks/${id}`)
+    return response.data;
+}
+
+// Sell Stock
+
+export async function sellSomeStocks(id, formData) {
+    const stockId = id;
+    const data = {
+        stockId: stockId,
+        ...formData
+    };
+    // Put or Delete
+    const response = await api.put(`/stocks/${stockId}`, data);
+
+    return response.data;
+}
+
+// Sell All Stocks
+
+export async function sellAlStocks(id, formData) {
+    const stockId = id;
+    const data = {
+        stockId: stockId,
+        ...formData
+    };
+    const response = await api.put(`/stocks/${stockId}`, data);
+
+    return response.data;
+}
+
+// Get a specific UserStock by ID
+
+export async function getUserStockById(id) {
+    
 }
