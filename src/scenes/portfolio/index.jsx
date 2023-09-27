@@ -1,6 +1,6 @@
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
-import { purchaseStock, getStockData } from '../../api/stocks';
+import { getStockData, getUserStockData } from '../../api/stocks';
 import { useState, useEffect } from "react";
 
 const Portfolio = () => {

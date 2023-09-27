@@ -14,6 +14,8 @@ const Stock = () => {
     const [amount, setAmount] = useState(0);
     const [cost, setCost] = useState(0);
 
+    // If a user's stock array has this stock's ID, then render the user's stock data using getUserStockById
+
     useEffect(() => {
         const fetchStock = async () => {
             try {

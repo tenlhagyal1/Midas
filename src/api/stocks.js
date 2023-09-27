@@ -60,8 +60,10 @@ export async function sellAllStocks(id) {
     return response.data;
 }
 
-// Get a specific UserStock by ID
+// Get all user stocks
 
-export async function getUserStockById(id) {
-    
+export async function getAllUserStocks() {
+    const response = await api.get('/dashboard');
+    console.log(response.data);
+    return response.data;
 }
