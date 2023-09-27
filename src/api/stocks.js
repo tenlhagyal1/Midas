@@ -9,7 +9,7 @@ export async function getStockData(id) {
     try {
         const response = await fetch(`${ROOT}quote?symbol=${id}&token=${token}`);
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         return data;
     } catch (error) {
         console.error("Error fetching stock data:", error);
@@ -23,46 +23,40 @@ export async function getStockData(id) {
 
 // Buy Stock
 
-export async function purchaseStock(id, formData) {
-    const stockId = id;
-    const stockData = await getStockData(stockId);
-    if (!stockData) {
-        throw new Error("Failed to fetch stock data");
-    }
-    
+export async function purchaseStock(id, amount, cost) {    
     const data = {
-        stockId: stockId,
-        ...formData
+        stockId: id,
+        amount: amount,
+        cost: cost
     };
 
-    const response = await api.post(`/stocks/${id}`)
+    console.log(data)
+
+    const response = await api.post(`/stocks/${id}`, data);
     return response.data;
 }
 
 // Sell Stock
 
-export async function sellSomeStocks(id, formData) {
-    const stockId = id;
+export async function sellSomeStocks(id, amount, cost) {
     const data = {
-        stockId: stockId,
-        ...formData
+        stockId: id,
+        amount: amount,
+        cost: cost
     };
-    // Put or Delete
-    const response = await api.put(`/stocks/${stockId}`, data);
 
+    const response = await api.put(`/stocks/${id}`, data);
     return response.data;
 }
 
 // Sell All Stocks
 
-export async function sellAlStocks(id, formData) {
-    const stockId = id;
+export async function sellAllStocks(id) {
     const data = {
-        stockId: stockId,
-        ...formData
+        stockId: id
     };
-    const response = await api.put(`/stocks/${stockId}`, data);
-
+    
+    const response = await api.delete(`/stocks/${id}`, data);
     return response.data;
 }
 

@@ -11,8 +11,8 @@ const Stock = () => {
     // console.log('ID', id);
 
     const [data, setData] = useState({});
-    const [quantity, setQuantity] = useState(0);
-    const [stake, setStake] = useState(0);
+    const [amount, setAmount] = useState(0);
+    const [cost, setCost] = useState(0);
 
     useEffect(() => {
         const fetchStock = async () => {
@@ -28,14 +28,25 @@ const Stock = () => {
 
     useEffect(() => {
         if (data.c) {
-            setStake(quantity * data.c);
+            setCost(amount * data.c);
         }
-    }, [quantity, data.c]);
+    }, [amount, data.c]);
 
-    async function handleSubmit(e) {
-        console.log(e.target)
+    async function handleBuySubmit(e) {
         e.preventDefault()
-        await purchaseStock(id, quantity, stake)
+        await purchaseStock(id, amount, cost)
+    }
+
+    async function handleSellSubmit(e) {
+        e.preventDefault()
+        /* if (user.balance -= cost < 0) {
+            Insufficient amount of stocks
+        } else if (user.balance -= cost > 0) {
+            sellSomeStocks
+        } else {
+            sellAllStocks
+        }
+        } */
     }
 
     return (
@@ -45,22 +56,43 @@ const Stock = () => {
                     <p>{key}: {value}</p>
                 </div>
             ))}
-            <form onSubmit={handleSubmit}>
+            <form className="buy-form" onSubmit={handleBuySubmit}>
                 <div>
-                    {/* Quantity */}
+                    {/* Amount */}
                     <div>
-                        <label>Quantity</label>
+                        <label>Amount</label>
                         <input
                             type="number"
-                            value={quantity}
-                            onChange={(e) => setQuantity(e.target.value)}
+                            value={amount}
+                            onChange={(e) => setAmount(Number(e.target.value))}
                         />
                     </div>
 
-                    {/* Stake */}
+                    {/* Cost */}
                     <div>
-                        <label>Stake</label>
-                        <p>{stake}</p>
+                        <label>Cost</label>
+                        <p>{cost}</p>
+                    </div>
+                </div>
+
+                <button>Submit</button>
+            </form>
+            <form className="sell-form" onSubmit={handleSellSubmit}>
+                <div>
+                    {/* Amount */}
+                    <div>
+                        <label>Amount</label>
+                        <input
+                            type="number"
+                            value={amount}
+                            onChange={(e) => setAmount(Number(e.target.value))}
+                        />
+                    </div>
+
+                    {/* Cost */}
+                    <div>
+                        <label>Cost</label>
+                        <p>{cost}</p>
                     </div>
                 </div>
 

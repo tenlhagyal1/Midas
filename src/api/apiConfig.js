@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const LOCALSTORAGE_KEY = process.env.REACT_APP_LOCALSTORAGE_KEY
 
-const API_URL = 'https://project3-midas-backend-831586772d51.herokuapp.com/api/'
+const API_URL = 'http://localhost:8080/api/'
 
 const api = axios.create({
   baseURL: API_URL,
