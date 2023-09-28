@@ -3,7 +3,7 @@ import api from './apiConfig'
 const ROOT = process.env.REACT_APP_STOCK_API_ROOT;
 const token = process.env.REACT_APP_API_KEY;
 
-// Get Stock Data
+// Get Stock Data HELPER FUNCTION
 
 export async function getStockData(id) {
     try {
