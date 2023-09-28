@@ -1,4 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #a5b4fc;
+    width: 5px;
+    border-radius: 10px;
+  }
+}
+
+/* Custom styles */
 
 html,
 body,
@@ -19,8 +40,15 @@ body,
   width: 10px;
 }
 
+.content {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 20px;
+}
+
 /* Track */
-::-webkit-scrollbar-track {
+/* ::-webkit-scrollbar-track {
   background: #e0e0e0;
 }
 
@@ -32,4 +60,49 @@ body,
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+/* Mobile and smaller devices */
+@media (max-width: 767px) {
+  /* Collapse sidebar by default */
+  .pro-sidebar {
+    display: none;
+  }
+
+  /* Adjust topbar for smaller screens */
+  .topbar {
+    padding: 0.5rem 1rem;
+  }
+
+  .topbar .search-bar {
+    flex: 1;
+    margin-right: 0.5rem;
+  }
+
+  /* Adjust font sizes for readability */
+  h1, h2, h3 {
+    font-size: 1.5rem;
+  }
+
+  p, .body-text {
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablet and medium devices */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Show sidebar but with reduced width */
+  .pro-sidebar {
+    width: 60px;
+  }
+
+  /* Adjust topbar for medium screens */
+  .topbar {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .topbar .search-bar {
+    flex: 1.5;
+    margin-right: 1rem;
+  }
 }
