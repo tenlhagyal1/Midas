@@ -15,6 +15,7 @@ export default function Login() {
     setIsLoggedIn(true)
     navigate('/')
     console.log(response);
+    localStorage.setItem('user', response.id);
   }
 
   return (

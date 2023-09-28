@@ -1,8 +1,9 @@
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
 import { purchaseStock, sellSomeStocks, sellAllStocks, getStockData, getUserStockById } from '../../api/stocks';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContextComponent'
 
 const Stock = () => {
     const theme = useTheme();
@@ -10,6 +11,10 @@ const Stock = () => {
     const { id } = useParams();
     // console.log('ID', id);
 
+    // const { user } = useContext(AuthContext) 
+
+    console.log(localStorage.getItem('user'));
+    
     const [data, setData] = useState({});
     const [amount, setAmount] = useState(0);
     const [cost, setCost] = useState(0);
