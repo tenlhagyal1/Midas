@@ -27,7 +27,8 @@ export async function purchaseStock(id, amount, cost) {
     const data = {
         stockId: id,
         amount: amount,
-        cost: cost
+        cost: cost,
+        id: localStorage.getItem('user')
     };
 
     console.log(data)
