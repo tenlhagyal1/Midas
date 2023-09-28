@@ -11,8 +11,8 @@ import Pie from "./scenes/pie";
 import FAQ from "./scenes/faq";
 import Geography from "./scenes/geography";
 import Calendar from "./scenes/calendar/index";
-// import List from "./scenes/list"
 import Form from "./scenes/form";
+import List from "./scenes/list"
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import { AuthContext } from "./context/AuthContextComponent";
@@ -126,6 +126,7 @@ function App() {
               />
               <Route path="/auth/signup" element={<Signup />} />
               {/* Other routes can be added similarly */}
+
             </Routes>
   
           </main>
