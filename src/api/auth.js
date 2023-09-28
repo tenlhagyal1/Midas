@@ -1,6 +1,6 @@
 import api from './apiConfig'
 
-const LOCALSTORAGE_KEY = 'process.env.LOCALSTORAGE_KEY'
+const LOCALSTORAGE_KEY = process.env.REACT_APP_LOCALSTORAGE_KEY
 
 export async function signin(username, password) {
   // Make request to singin user to retrieve a token
@@ -9,7 +9,13 @@ export async function signin(username, password) {
   })
 
   // Put the token on localstorage, for 30min (duration set in server)
-  localStorage.setItem(LOCALSTORAGE_KEY, response.data.token)
+  console.log('Data Token:', response.data.token)
+  console.log('User ID:', response.data.userId)
+  if (response.data) {
+    localStorage.setItem(LOCALSTORAGE_KEY, response.data.token)
+    localStorage.setItem('user', response.data.userId);
+  }
+
 
   return response.data
 }

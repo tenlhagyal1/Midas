@@ -23,7 +23,7 @@ export async function getStockData(id) {
 
 // Buy Stock
 
-export async function purchaseStock(id, amount, cost) {    
+export async function purchaseStock(id, amount, cost) {
     const data = {
         stockId: id,
         amount: amount,
