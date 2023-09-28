@@ -20,7 +20,7 @@ export default function AuthContextComponent({ children }) {
                     // If you want to set user data, you can do it here
                     setUser(response.user);
                     console.log(response.user)
-                    localStorage.setItem('user', response.user);
+                    // localStorage.setItem('user', response.user);
                 })
                 .catch((error) => {
                     console.error("Error checking token validity:", error);
