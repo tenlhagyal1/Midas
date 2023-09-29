@@ -12,10 +12,25 @@ import GeographyChart from "../../components/GeographyChart";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
+import { useState, useEffect } from "react";
+import { getUserStocks } from "../../api/users.js"
 
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [userStocks, setUserStocks] = useState({});
+
+  useEffect(() => {
+    const fetchUserStocks = async () => {
+        try {
+          const fetchedStocks = await getUserStocks();
+          setUserStocks(fetchedStocks);          
+        } catch (error) {
+            console.error("Error setting stock data in state:", error);
+        }
+    };
+    fetchUserStocks();
+  }, []);
 
   return (
     <Box m="20px">
