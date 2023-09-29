@@ -47,7 +47,6 @@ function App() {
   <Route path="/geography" element={<ProtectecRoute><Geography /></ProtectecRoute>} />
   <Route path="/faq" element={<ProtectecRoute><FAQ /></ProtectecRoute>} />
   <Route path="/calendar" element={<ProtectecRoute><Calendar /></ProtectecRoute>} />
-  <Route path="/transactions" element={<ProtectecRoute><Transactions /></ProtectecRoute>} />
   <Route path="/auth/signup" element={<Signup />} />
   {/* <ProtectecRoute> */}
   <Route path="/investments" element={<ProtectecRoute><Investment/></ProtectecRoute>} />
