@@ -11,9 +11,11 @@ export async function signin(username, password) {
   // Put the token on localstorage, for 30min (duration set in server)
   console.log('Data Token:', response.data.token)
   console.log('User ID:', response.data.userId)
+  console.log('User Balance:', response.data.userBalance)
   if (response.data) {
     localStorage.setItem(LOCALSTORAGE_KEY, response.data.token)
     localStorage.setItem('user', response.data.userId);
+    localStorage.setItem('userBalance', response.data.userBalance);
   }
 
 

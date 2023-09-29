@@ -17,18 +17,27 @@ export async function getStockData(id) {
     }
 }
 
-// Search Stocks
+export async function getUserById(id) {
+    const data = {
+        symbol: id,
+        id: localStorage.getItem('user')
+    }
+    
+    console.log('What data:', data);
 
-// searchStock
+    const response = await api.get(`/stocks/${id}`, {params: data})
+    return response.data;
+}
 
 // Buy Stock
 
-export async function purchaseStock(id, amount, cost) {
+export async function createStock(id, amount, cost, userBalance) {
     const data = {
-        stockId: id,
-        amount: amount,
-        cost: cost,
-        id: localStorage.getItem('user')
+        symbol: id,
+        quantity: amount,
+        stake: cost,
+        id: localStorage.getItem('user'),
+        balance: userBalance
     };
 
     console.log(data)
@@ -39,12 +48,17 @@ export async function purchaseStock(id, amount, cost) {
 
 // Sell Stock
 
-export async function sellSomeStocks(id, amount, cost) {
-    const data = {
-        stockId: id,
-        amount: amount,
-        cost: cost
+export async function editStock(id, amount, cost, userBalance, type) {
+    let data = {
+        symbol: id,
+        quantity: amount,
+        stake: cost,
+        id: localStorage.getItem('user'),
+        balance: userBalance,
+        type
     };
+
+    console.log(data)
 
     const response = await api.put(`/stocks/${id}`, data);
     return response.data;
@@ -52,19 +66,28 @@ export async function sellSomeStocks(id, amount, cost) {
 
 // Sell All Stocks
 
-export async function sellAllStocks(id) {
+export async function deleteStock(id, amount, cost, userBalance) {
     const data = {
-        stockId: id
+        symbol: id,
+        quantity: amount,
+        stake: cost,
+        id: localStorage.getItem('user'),
+        balance: userBalance
     };
+
+    console.log('Sending delet data', data)
     
-    const response = await api.delete(`/stocks/${id}`, data);
+    const response = await api.delete(`/stocks/${id}`, {data});
     return response.data;
 }
 
 // Get all user stocks
 
 export async function getAllUserStocks() {
-    const response = await api.get('/dashboard');
+    const data = {
+        id: localStorage.getItem('user')
+    }
+    const response = await api.get('/dashboard', {params: data});
     console.log(response.data);
     return response.data;
 }
