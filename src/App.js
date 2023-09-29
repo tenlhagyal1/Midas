@@ -19,7 +19,7 @@ import { useContext } from 'react';
 import Login from "./scenes/loginPage";
 import Signup from "./scenes/signup";
 import ProtectecRoute from './components/ProtectedRoute';
-import Portfolio from "./scenes/portfolio";
+import Investment from "./scenes/investments";
 import Stock from "./scenes/stockbyid";
 
 function App() {
@@ -50,8 +50,8 @@ function App() {
   <Route path="/transactions" element={<ProtectecRoute><Transactions /></ProtectecRoute>} />
   <Route path="/auth/signup" element={<Signup />} />
   {/* <ProtectecRoute> */}
-  <Route path="/portfolio" element={<Portfolio />} />
-              <Route path="/stocks/:id" element={<Stock/>} />
+  <Route path="/investments" element={<ProtectecRoute><Investment/></ProtectecRoute>} />
+  <Route path="/stocks/:id" element={<ProtectecRoute><Stock/></ProtectecRoute>} />
   {/* </ProtectecRoute> */}
   {/* Other routes can be added similarly */}
 </Routes>

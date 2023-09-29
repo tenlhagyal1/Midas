@@ -1,83 +1,88 @@
-import { Box, Typography, useTheme } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
-import { tokens } from "../../theme";
-import { mockDataTransactions } from "../../data/mockData";
-import Header from "../../components/Header";
+// import React, { useState, useEffect } from 'react';
+// import { Box, Typography, useTheme } from "@mui/material";
+// import { DataGrid } from "@mui/x-data-grid";
+// import { tokens } from "../../theme";
+// import Header from "../../components/Header";
 
-const Transactions = () => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
-  const columns = [
-    { field: "id", headerName: "ID" },
-    {
-      field: "name",
-      headerName: "Name",
-      flex: 1,
-      cellClassName: "name-column--cell",
-    },
-    {
-      field: "phone",
-      headerName: "Phone Number",
-      flex: 1,
-    },
-    {
-      field: "email",
-      headerName: "Email",
-      flex: 1,
-    },
-    {
-      field: "cost",
-      headerName: "Cost",
-      flex: 1,
-      renderCell: (params) => (
-        <Typography color={colors.greenAccent[500]}>
-          ${params.row.cost}
-        </Typography>
-      ),
-    },
-    {
-      field: "date",
-      headerName: "Date",
-      flex: 1,
-    },
-  ];
+// const Transactions = () => {
+//   const theme = useTheme();
+//   const colors = tokens(theme.palette.mode);
+  
+//   const [transactions, setTransactions] = useState([]);
 
-  return (
-    <Box m="20px">
-      <Header title="Transactions" subtitle="List of Transactions" />
-      <Box
-        m="40px 0 0 0"
-        height="75vh"
-        sx={{
-          "& .MuiDataGrid-root": {
-            border: "none",
-          },
-          "& .MuiDataGrid-cell": {
-            borderBottom: "none",
-          },
-          "& .name-column--cell": {
-            color: colors.greenAccent[300],
-          },
-          "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: colors.blueAccent[700],
-            borderBottom: "none",
-          },
-          "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: colors.primary[400],
-          },
-          "& .MuiDataGrid-footerContainer": {
-            borderTop: "none",
-            backgroundColor: colors.blueAccent[700],
-          },
-          "& .MuiCheckbox-root": {
-            color: `${colors.greenAccent[200]} !important`,
-          },
-        }}
-      >
-        <DataGrid checkboxSelection rows={mockDataTransactions} columns={columns} />
-      </Box>
-    </Box>
-  );
-};
+//   // useEffect(() => {
+//   //   async function fetchData() {
+//   //     try {
+//   //       const response = await fetch('/path-to-your-endpoint', {
+//   //         method: 'POST',
+//   //         headers: {
+//   //           'Content-Type': 'application/json',
+//   //           // Add any other headers like authentication tokens if needed
+//   //         },
+//   //         body: JSON.stringify({ user: { id: 'your-user-id' } }) // Replace 'your-user-id' with the actual user ID
+//   //       });
 
-export default Transactions;
+//   //       const result = await response.json();
+
+//   //       if (result.tradeHistory) {
+//   //         setTransactions(result.tradeHistory);
+//   //       }
+//   //     } catch (err) {
+//   //       console.error("Error fetching data:", err);
+//   //     }
+//   //   }
+
+//   //   fetchData();
+//   // }, []);
+
+//   setTransactions()
+
+//   const columns = [
+//     {
+//       field: "symbol",
+//       headerName: "Symbol",
+//       flex: 1,
+//     },
+//     {
+//       field: "quantity",
+//       headerName: "Shares",
+//       flex: 1,
+//     },
+//     {
+//       field: "cost",
+//       headerName: "Amount ($)",
+//       flex: 1,
+//       renderCell: (params) => {
+//         const isBuy = params.row.type === 'buy'; 
+//         const color = isBuy ? colors.redAccent[500] : colors.greenAccent[500];
+    
+//         return (
+//           <Typography color={color}>
+//             ${params.value}
+//           </Typography>
+//         );
+//       },
+//     },
+//     {
+//       field: "type",
+//       headerName: "Transaction Type",
+//       flex: 1,
+//     },
+//     {
+//       field: "createdAt",
+//       headerName: "Date",
+//       flex: 1,
+//     },
+//   ];
+
+//   return (
+//     <Box m="20px">
+//       <Header title="Transactions History" subtitle="List of Transactions" />
+//       <Box>
+//         <DataGrid rows={transactions} columns={columns} />
+//       </Box>
+//     </Box>
+//   );
+// };
+
+// export default Transactions;
