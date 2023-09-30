@@ -58,7 +58,7 @@ function App() {
               <Route path="/faq" element={<ProtectecRoute><FAQ /></ProtectecRoute>} />
               <Route path="/calendar" element={<ProtectecRoute><Calendar /></ProtectecRoute>} />
                           <Route path="/investments" element={<ProtectecRoute><ProtectecRoute><Investment/></ProtectecRoute></ProtectecRoute>} />
-  <Route path="/stocks/:id" element={<ProtectecRoute><ProtectecRoute><Stock/></ProtectecRoute></ProtectecRoute>} />
+  <Route path="/stocks/" element={<ProtectecRoute><ProtectecRoute><Stock/></ProtectecRoute></ProtectecRoute>} />
             </Routes>
           </main>
         </div>
