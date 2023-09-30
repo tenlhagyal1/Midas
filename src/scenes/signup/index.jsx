@@ -9,6 +9,8 @@ export default function Signup() {
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
+  console.log("HERE")
+
     e.preventDefault();
     try {
       const response = await signup(email, password);

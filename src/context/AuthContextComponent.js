@@ -15,8 +15,10 @@ export default function AuthContextComponent({ children }) {
     useEffect( () => {
         // Check if the user's token is valid and update the state
         const func = async () => {
+            if (!localStorage.getItem("token")) return;
             await isTokenValid()
                 .then((response) => {
+                    console.log(response)
                     setIsLoggedIn(response.valid);
                     // If you want to set user data, you can do it here
                     setUser(response.user);
