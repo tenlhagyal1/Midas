@@ -14,7 +14,7 @@ export default function Login() {
     const response = await signin(text, password)
     setIsLoggedIn(true)
     localStorage.setItem('isLoggedIn', true)
-    navigate('/')
+    navigate('/dashboard')
     console.log(response);
   }
 

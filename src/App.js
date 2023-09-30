@@ -16,7 +16,7 @@ import { ColorModeContext, useMode } from "./theme";
 import { AuthContext } from './context/AuthContextComponent';
 import Login from "./scenes/loginPage";
 import Signup from "./scenes/signup";
-import ProtectecRoute from './components/ProtectedRoute';
+import ProtectedRoute from './components/ProtectedRoute';
 import Investment from "./scenes/investments";
 import Stock from "./scenes/stockbyid";
 
@@ -27,7 +27,7 @@ function App() {
   const location = useLocation();
 
   // Check if the current route is /auth/signin or /auth/signup
-  const isAuthRoute = location.pathname === '/auth/signin' || location.pathname === '/auth/signup';
+  const isAuthRoute = location.pathname === '/auth/signin' || location.pathname === '/auth/signup' || location.pathname === '/';
 
   return (
     <ColorModeContext.Provider value={colorMode}>
@@ -36,31 +36,32 @@ function App() {
         <div className="app">
           {!isAuthRoute && (
             <>
-              <ProtectecRoute>
+              <ProtectedRoute>
                 <Sidebar isSidebar={isSidebar} />
-              </ProtectecRoute>
+              </ProtectedRoute>
 
             </>
           )}
           <main className="content">
-            <ProtectecRoute>
+            <ProtectedRoute>
               {!isAuthRoute && (<Topbar setIsSidebar={setIsSidebar} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />)}
-            </ProtectecRoute>
+            </ProtectedRoute>
             <Routes>
+              <Route path="/" element={<Login />} /> 
               <Route path="/auth/signin" element={<Login />} />
               <Route path="/auth/signup" element={<Signup />} />
-              <Route path="/" element={<ProtectecRoute><Dashboard /></ProtectecRoute>} />
-              <Route path="/form" element={<ProtectecRoute><Form /></ProtectecRoute>} />
-              <Route path="/bar" element={<ProtectecRoute><Bar /></ProtectecRoute>} />
-              <Route path="/pie" element={<ProtectecRoute><Pie /></ProtectecRoute>} />
-              <Route path="/list" element={<ProtectecRoute><List /></ProtectecRoute>} />
-              <Route path="/line" element={<ProtectecRoute><Line /></ProtectecRoute>} />
-              <Route path="/geography" element={<ProtectecRoute><Geography /></ProtectecRoute>} />
-              <Route path="/faq" element={<ProtectecRoute><FAQ /></ProtectecRoute>} />
-              <Route path="/calendar" element={<ProtectecRoute><Calendar /></ProtectecRoute>} />
-              <Route path="/investments" element={<ProtectecRoute><ProtectecRoute><Investment /></ProtectecRoute></ProtectecRoute>} />
-              <Route path="/stocks/id" element={<ProtectecRoute><ProtectecRoute><Stock /></ProtectecRoute></ProtectecRoute>} />
-              <Route path="/transactions" element={<ProtectecRoute><Transactions /></ProtectecRoute>} />
+              <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+              <Route path="/form" element={<ProtectedRoute><Form /></ProtectedRoute>} />
+              <Route path="/bar" element={<ProtectedRoute><Bar /></ProtectedRoute>} />
+              <Route path="/pie" element={<ProtectedRoute><Pie /></ProtectedRoute>} />
+              <Route path="/list" element={<ProtectedRoute><List /></ProtectedRoute>} />
+              <Route path="/line" element={<ProtectedRoute><Line /></ProtectedRoute>} />
+              <Route path="/geography" element={<ProtectedRoute><Geography /></ProtectedRoute>} />
+              <Route path="/faq" element={<ProtectedRoute><FAQ /></ProtectedRoute>} />
+              <Route path="/calendar" element={<ProtectedRoute><Calendar /></ProtectedRoute>} />
+              <Route path="/investments" element={<ProtectedRoute><ProtectedRoute><Investment /></ProtectedRoute></ProtectedRoute>} />
+              <Route path="/stocks/id" element={<ProtectedRoute><ProtectedRoute><Stock /></ProtectedRoute></ProtectedRoute>} />
+              <Route path="/transactions" element={<ProtectedRoute><Transactions /></ProtectedRoute>} />
             </Routes>
           </main>
         </div>

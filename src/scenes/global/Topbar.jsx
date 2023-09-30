@@ -9,16 +9,23 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import LogoutIcon from "@mui/icons-material/Logout";
 import SearchIcon from "@mui/icons-material/Search";
 import Search from "../../components/Search";
+import { Link, useNavigate } from "react-router-dom";
+
 
 const Topbar = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const colorMode = useContext(ColorModeContext);
+    const navigate = useNavigate()
 
     const handleLogout = () => {
       console.log('logout')
       localStorage.removeItem('user');
       localStorage.removeItem('token');
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('userBalance');
+
+      navigate("/auth/signin")
     }
   
     return (
