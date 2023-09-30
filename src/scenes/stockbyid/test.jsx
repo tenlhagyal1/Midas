@@ -1,9 +1,9 @@
-import { Box, Typography, useTheme, Button, Paper, Grid } from "@mui/material";
+import { Box, Button, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
-import { useState, useEffect, useContext } from "react";
+import { createStock, editStock, deleteStock, getStockData, getUserById } from '../../api/stocks';
+import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import LineCharts from "../../components/LineCharts";
-import { createStock, editStock, deleteStock, getStockData, getUserById } from '../../api/stocks';
 
 const Stock = () => {
     const theme = useTheme();
@@ -18,6 +18,7 @@ const Stock = () => {
     const [userStock, setUserStock] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [isBuying, setIsBuying] = useState(true); // Toggle state
 
     useEffect(() => {
         const fetchStock = async () => {
@@ -29,7 +30,7 @@ const Stock = () => {
             }
         };
         fetchStock();
-    }, []);
+    }, [id]);
 
     useEffect(() => {
         const fetchUser = async () => {
@@ -38,7 +39,6 @@ const Stock = () => {
                 const user = await getUserById(id);
                 setUserStock(user);
                 const matchingStock = user.stocks.find(stock => stock.symbol === id);
-
                 if (matchingStock) {
                     setUserQuantity(matchingStock.quantity);
                 } else {
@@ -82,67 +82,41 @@ const Stock = () => {
         } else if (userQuantity - amount === 0) {
             await deleteStock(id, amount, cost, userBalance);
         } else {
-            console.log('Insufficient owned stock amount')
+            console.log('Insufficient owned stock amount');
         }
     }
 
     return (
-        <Box p={3}>
-            <Paper elevation={3} style={{ padding: '16px' }}>
-                <Typography variant="h5" gutterBottom>
-                    Stock Details
-                </Typography>
-                <LineCharts data={data} />
-                <Box mt={2} maxWidth="95%" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                    <Typography variant="h6">{id}</Typography>
-                    <Typography noWrap>Latest Price: {data.c}</Typography>
+        <Box sx={{ padding: theme.spacing(2) }}>
+            <Typography variant="h4" gutterBottom>
+                Stock Details
+            </Typography>
+            {data && Object.entries(data).map(([key, value]) => (
+                <Box key={key} sx={{ marginBottom: theme.spacing(1) }}>
+                    <Typography variant="body1">
+                        {key}: {value}
+                    </Typography>
                 </Box>
-            </Paper>
-
-            <Box mt={3}>
-                <form className="buy-form" onSubmit={handleBuySubmit}>
-                    <Grid container spacing={3}>
-                        <Grid item xs={6}>
-                            <label>Amount</label>
-                            <input
-                                type="number"
-                                value={amount}
-                                onChange={(e) => setAmount(Number(e.target.value))}
-                            />
-                        </Grid>
-                        <Grid item xs={6}>
-                            <Typography variant="subtitle1">Cost: {cost}</Typography>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <Button variant="contained" color="primary" type="submit">
-                                Buy
-                            </Button>
-                        </Grid>
-                    </Grid>
-                </form>
-            </Box>
-
-            <Box mt={3}>
-                <form className="sell-form" onSubmit={handleSellSubmit}>
-                    <Grid container spacing={3}>
-                        <Grid item xs={6}>
-                            <label>Amount</label>
-                            <input
-                                type="number"
-                                value={amount}
-                                onChange={(e) => setAmount(Number(e.target.value))}
-                            />
-                        </Grid>
-                        <Grid item xs={6}>
-                            <Typography variant="subtitle1">Cost: {cost}</Typography>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <Button variant="contained" color="secondary" type="submit">
-                                Sell
-                            </Button>
-                        </Grid>
-                    </Grid>
-                </form>
+            ))}
+            <Button variant="contained" color="primary" onClick={() => setIsBuying(!isBuying)}>
+                {isBuying ? "Switch to Sell" : "Switch to Buy"}
+            </Button>
+            <Box component="form" onSubmit={isBuying ? handleBuySubmit : handleSellSubmit} sx={{ marginTop: theme.spacing(2) }}>
+                <Box sx={{ marginBottom: theme.spacing(2) }}>
+                    <label>Amount</label>
+                    <input
+                        type="number"
+                        value={amount}
+                        onChange={(e) => setAmount(Number(e.target.value))}
+                    />
+                </Box>
+                <Box sx={{ marginBottom: theme.spacing(2) }}>
+                    <label>Cost</label>
+                    <Typography variant="body1">{cost}</Typography>
+                </Box>
+                <Button type="submit" variant="contained" color="secondary">
+                    {isBuying ? "Buy" : "Sell"}
+                </Button>
             </Box>
         </Box>
     );

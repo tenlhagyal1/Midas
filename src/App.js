@@ -11,7 +11,7 @@ import FAQ from "./scenes/faq";
 import Geography from "./scenes/geography";
 import Calendar from "./scenes/calendar/index";
 import Form from "./scenes/form";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+import { CssBaseline, List, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
 import { AuthContext } from './context/AuthContextComponent';
 import Login from "./scenes/loginPage";
@@ -43,9 +43,9 @@ function App() {
             </>
           )}
           <main className="content">
-              <ProtectecRoute>
-              {!isAuthRoute && (<Topbar setIsSidebar={setIsSidebar} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />) }
-              </ProtectecRoute>
+            <ProtectecRoute>
+              {!isAuthRoute && (<Topbar setIsSidebar={setIsSidebar} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />)}
+            </ProtectecRoute>
             <Routes>
               <Route path="/auth/signin" element={<Login />} />
               <Route path="/auth/signup" element={<Signup />} />
@@ -53,12 +53,14 @@ function App() {
               <Route path="/form" element={<ProtectecRoute><Form /></ProtectecRoute>} />
               <Route path="/bar" element={<ProtectecRoute><Bar /></ProtectecRoute>} />
               <Route path="/pie" element={<ProtectecRoute><Pie /></ProtectecRoute>} />
+              <Route path="/list" element={<ProtectecRoute><List /></ProtectecRoute>} />
               <Route path="/line" element={<ProtectecRoute><Line /></ProtectecRoute>} />
               <Route path="/geography" element={<ProtectecRoute><Geography /></ProtectecRoute>} />
               <Route path="/faq" element={<ProtectecRoute><FAQ /></ProtectecRoute>} />
               <Route path="/calendar" element={<ProtectecRoute><Calendar /></ProtectecRoute>} />
-                          <Route path="/investments" element={<ProtectecRoute><ProtectecRoute><Investment/></ProtectecRoute></ProtectecRoute>} />
-  <Route path="/stocks/" element={<ProtectecRoute><ProtectecRoute><Stock/></ProtectecRoute></ProtectecRoute>} />
+              <Route path="/investments" element={<ProtectecRoute><ProtectecRoute><Investment /></ProtectecRoute></ProtectecRoute>} />
+              <Route path="/stocks/id" element={<ProtectecRoute><ProtectecRoute><Stock /></ProtectecRoute></ProtectecRoute>} />
+              <Route path="/transactions" element={<ProtectecRoute><Transactions /></ProtectecRoute>} />
             </Routes>
           </main>
         </div>

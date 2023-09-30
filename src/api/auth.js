@@ -1,5 +1,4 @@
 import api from './apiConfig'
-
 const LOCALSTORAGE_KEY = process.env.REACT_APP_LOCALSTORAGE_KEY
 
 export async function signin(username, password) {
@@ -34,7 +33,11 @@ export async function signup(username, password) {
 
 
 export async function isTokenValid() {
-  const response = await api.get('/auth/isTokenValid')
+  const response = await api.get('/auth/isTokenValid', {
+    headers: {
+      token: localStorage.getItem(LOCALSTORAGE_KEY) || `123`
+    }
+  })
   return response.data
 }
 
