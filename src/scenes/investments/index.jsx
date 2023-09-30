@@ -3,39 +3,64 @@ import { getUserTrades } from '../../api/users';
 
 const Investment = () => {
     const [userTrades, setUserTrades] = useState({});
+    const [userBalance, setUserBalance] = useState(parseFloat(localStorage.getItem('userBalance')) || 0);
 
-    
     useEffect(() => {
         const fetchUserTrades = async () => {
             try {
-              const fetchedTrades = await getUserTrades();
-              setUserTrades(fetchedTrades);        
-              console.log("WHAT IS THIS", fetchedTrades.userTrades)  
+                const fetchedTrades = await getUserTrades();
+                const processedTrades = processTrades(fetchedTrades.userTrades);
+                setUserTrades({ ...fetchedTrades, userTrades: processedTrades });
             } catch (error) {
                 console.error("Error setting Trades in state:", error);
             }
         };
         fetchUserTrades();
-      }, []);
+    }, []);
 
-    return (
-        <div>
-            {/* <h2>Total Portfolio Value: ${portfolio.totalValue}</h2>
-            <h2>Cash Value: ${portfolio.cashValue}</h2>
-            <div>
-                <h2>Your Stocks:</h2>
-                <ul>
-                    {portfolio.stocks.map(stock => (
-                        <li key={stock.symbol}>
-                            <strong>Symbol:</strong> {stock.symbol} | 
-                            <strong>Shares:</strong> {stock.shares} | 
-                            <strong>Equity:</strong> ${stock.equity}
-                        </li>
-                    ))}
-                </ul>
-            </div> */}
-        </div>
-    );
+    const processTrades = (trades) => {
+        const groupedTrades = {};
+    
+        trades.forEach(trade => {
+            if (groupedTrades[trade.symbol]) {
+                // Adjust quantity based on trade type (buy or sell)
+                if (trade.type) { // Buy
+                    groupedTrades[trade.symbol].quantity += trade.quantity;
+                    groupedTrades[trade.symbol].stake += trade.stake;
+                } else { // Sell
+                    groupedTrades[trade.symbol].quantity -= trade.quantity;
+                    groupedTrades[trade.symbol].stake -= trade.stake;
+                }
+            } else {
+                groupedTrades[trade.symbol] = { ...trade };
+            }
+        });
+    
+        return Object.values(groupedTrades);
+    };
+    
+ // Calculate the total stake from all trades
+ const totalStake = userTrades.userTrades ? userTrades.userTrades.reduce((acc, trade) => acc + trade.stake, 0) : 0;
+
+ // Calculate cash value
+ const cashValue = userBalance - totalStake;
+
+ return (
+     <div>
+         <h2>Total portfolio value: ${userBalance.toFixed(2)}</h2>
+         <h2>Brokerage Cash: ${cashValue.toFixed(2)}</h2>
+         <h2>Stocks:</h2>
+         <ul>
+             {userTrades.userTrades && userTrades.userTrades.map(trade => (
+                 <li key={trade.symbol}>
+                     <strong>Symbol:</strong> {trade.symbol} | 
+                     <strong>Quantity:</strong> {trade.quantity} | 
+                     <strong>Equity:</strong> ${trade.stake.toFixed(2)}
+                 </li>
+             ))}
+         </ul>
+     </div>
+ );
 }
 
 export default Investment;
