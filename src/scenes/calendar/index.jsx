@@ -31,6 +31,7 @@ const Calendar = () => {
     const calendarApi = selected.view.calendar;
     calendarApi.unselect();
 
+
     if (title) {
       calendarApi.addEvent({
         id: `${selected.dateStr}-${title}`,

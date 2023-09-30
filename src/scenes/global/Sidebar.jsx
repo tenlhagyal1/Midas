@@ -19,6 +19,7 @@ import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import logo from "../../assets/logo.png";
 import user from "../../assets/user.png"
 
+
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -133,8 +134,8 @@ const Sidebar = () => {
               Data
             </Typography>
             <Item
-              title="Portfolio"
-              to="/portfolio"
+              title="Investments"
+              to="/investments"
               icon={<ContactsOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
