@@ -26,25 +26,13 @@ It allows the user to paper trade and view their favorite stocks.
 
 ## Screenshots
 
-![image](https://github.com/rehanhussa/Midas/blob/main/test.png)
+![image](https://github.com/rehanhussa/Midas/blob/features/loginlayout/home.png)
+![image](https://github.com/rehanhussa/Midas/blob/features/loginlayout/dashboard.png)
 
 
 ## Trello
 
 [Trello Link](https://trello.com/b/W70a7V17/midas-simulated-stock-exchange)
-
-## USER FLOW
-
-![image](https://github.com/rehanhussa/Midas/blob/development/user.jpg)
-
-## Wireframe 
-
-1. Landing Page
-2. Register Page
-3. Login Page
-4. Dashboard After Login
-5. Paper Trade page
-6. View Stocks page
 
 ## Motivation
 
@@ -53,87 +41,12 @@ We wanted to test our skills and build a application that would challenge us. We
 ## How to Use
 
 Login to the webpage / create an account. 
-A list of stocks should be displayed to the user on the home page.
-A paper trade balance should be displayed to the user if they click the trading tab. 
+A list of data should be displayed to the user on the home page.
+A paper trade balance should be displayed to the user if they click the portfolio tab. 
 With this they can Buy & Sell stocks.
-
+If the user wants to search for a stock they can do so by clicking the search tab and entering the stock symbol.
 Enjoy Trading!
 
-## User Stories 
-
-- As a new user, I want to be able to register for an account so that I can access the paper trading platform.
-- As a registered user, I want to be able to log in to the platform using my credentials so that I can access my dashboard and trading features.
-- As a user, I want to be able to search for stocks by ticker or company name so that I can view their details and make informed trading decisions.
-- As a user, I want to be able to view a stock's current price, price change, and historical chart so that I can analyze its performance.
-- As a user, I want to be able to execute paper trades (buy/sell) so that I can simulate real-world trading without risking real money.
-- As a user, I want to view a summary of my portfolio, including total value, cash available, and total profit/loss, so that I can track my paper trading performance.
-- As a user, I want to view a list of stocks I hold, including the number of shares, average purchase price, and current value, so that I can manage my holdings.
-- As a user, I want to be able to log out of the platform to ensure the security of my account.
-
-
-## MVP Goals 
-
-- User Registration & Authentication:
-- Implement a registration system with form validation.
-- Implement a login system with authentication and session management.
-- Dashboard:
-- Display portfolio summary (total value, cash available, profit/loss).
-- List user's stock holdings with relevant details.
-- Stock Search & Display:
-- Implement a search bar to find stocks by ticker or company name.
-- Display stock details including current price, price change, and a basic historical chart.
-- Paper Trading:
-- Allow users to execute buy/sell trades with form validation.
-- Update user's portfolio and holdings in real-time after a trade.
-
-
-## Stretch Goals 
-
-- Mobile Application: Develop a mobile app version of MIDAS for both iOS and Android platforms, ensuring seamless trading on the go.
-
-- Advanced Charting Tools: Integrate advanced charting tools that allow users to perform technical analysis with indicators like Moving Averages, RSI MACD, etc.
-
-- API Integration: Offer a public API for third-party developers to build tools or integrations around the MIDAS platform.
-
-- Chat & Social Features: Implement a real-time chat feature where users can discuss stocks, market trends, and share insights.
-
-- Machine Learning Insights: Use machine learning to provide users with personalized stock recommendations based on their trading behavior and preferences.
-
-- Real-time News Feed: Integrate a real-time news feed that curates relevant news articles related to the stocks in a user's portfolio or watchlist.
-
-- Advanced Security Features: Implement biometric authentication, two-factor authentication, and other security measures to enhance user account security.
-
-- Integration with Real Brokers: Partner with real stock brokers to allow users to transition from paper trading to real trading seamlessly.
-
-
-## One-Week Development Timeline 
-
-- Day 1: Planning, Setup & Backend Infrastructure
-Finalize the project scope and gather requirements.
-Set up the development environment.
-Design the database schema and set up the backend infrastructure.
-
-- Day 2: User Registration, Authentication & Dashboard Development
-Develop the user registration & authentication system.
-Start working on the dashboard to display portfolio summary and user's stock holdings.
-
-- Day 3: Stock Search, Display & Paper Trading
-Implement the stock search & display feature.
-Begin development of the paper trading feature, allowing users to execute buy/sell trades.
-
-- Day 4: Advanced Features & Additional Tools
-Implement trend analysis and stock comparisons.
-Add predictive analytics and news sentiment analysis.
-Work on additional features like notifications and watchlist.
-
-- Day 5: Testing, Bug Fixes & Optimization
-Conduct thorough testing of all developed features.
-Fix any identified bugs and optimize performance.
-
-- Day 6: Deployment & Launch (Ideally Day 5)
-Conduct final testing.
-Deploy the application.
-Announce the launch and gather initial user feedback.
 
 ## Credits 
 
