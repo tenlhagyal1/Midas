@@ -13,6 +13,7 @@ export default function Login() {
     e.preventDefault()
     const response = await signin(text, password)
     setIsLoggedIn(true)
+    localStorage.setItem('isLoggedIn', true)
     navigate('/')
     console.log(response);
   }

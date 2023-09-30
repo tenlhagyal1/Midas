@@ -3,9 +3,11 @@ import { Navigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContextComponent';
 
 function ProtectedRoute({ children }) {
-  const { isLoggedIn } = useContext(AuthContext);
+  const loggedIn = localStorage.getItem('isLoggedIn');
 
-  if (isLoggedIn) {
+  console.log(loggedIn);
+  
+  if (loggedIn) {
     return children;
   } else {
     return <Navigate to="/auth/signin" replace />;
