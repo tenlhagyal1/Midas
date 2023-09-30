@@ -3,6 +3,7 @@ import { isTokenValid } from '../api/auth';
 
 export const AuthContext = createContext(null);
 
+// export default function Button({ children }) {
 export default function AuthContextComponent({ children }) {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [user, setUser] = useState({});

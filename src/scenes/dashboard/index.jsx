@@ -15,9 +15,7 @@ import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 import React, { useState, useEffect } from "react";
-import { getUserStocks } from 
-// Import getUserStocks if it's defined in another module.
-// import { getUserStocks } from "./your-api-module";
+import { getUserStocks } from "../../api/users";
 
  
 const Dashboard = () => {
