@@ -13,6 +13,7 @@ import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 import LineCharts from "../../components/LineCharts";
+import { mockLineData } from "../../data/mockData";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -257,7 +258,7 @@ const Dashboard = () => {
             Candles
           </Typography>
           <Box height="250px" mt="-20px">
-            <LineCharts isDashboard={true} />
+            <LineCharts data={mockLineData}/>
           </Box>
         </Box>
         <Box
