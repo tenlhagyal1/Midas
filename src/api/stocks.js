@@ -8,6 +8,7 @@ export async function getStockData(id) {
     try {
         const response = await fetch(`${ROOT}quote?symbol=${id}&token=${token}`);
         const data = await response.json();
+        console.log(data);
         return data;
     } catch (error) {
         console.error("Error fetching stock data:", error);
@@ -20,7 +21,8 @@ export async function getUserById(id) {
         symbol: id,
         id: localStorage.getItem('user')
     }
-    const response = await api.get(`/stocks/${id}`, {params: data});
+    const response = await api.get(`/stocks/${localStorage.getItem('user')}`, {params: data});
+    console.log(response)
     return response.data;
 }
 
@@ -31,7 +33,7 @@ export async function createStock(id, amount, cost, userBalance) {
         quantity: amount,
         stake: cost,
         id: localStorage.getItem('user'),
-        balance: userBalance
+        userBalance: userBalance
     };
     const response = await api.post(`/stocks/${id}`, data);
     return response.data;
